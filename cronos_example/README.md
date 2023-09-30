@@ -42,6 +42,7 @@ For this project, you can try to query with the following GraphQL code to get a 
 {
   query {
     approvals(first: 5) {
+      totalCount
       nodes {
         id
         value
@@ -50,11 +51,61 @@ For this project, you can try to query with the following GraphQL code to get a 
       }
     }
     transactions(first: 5) {
+      totalCount
       nodes {
         id
         value
         to: id
         from: id
+      }
+    }
+  }
+}
+```
+
+Expected output
+```
+{
+  "data": {
+    "query": {
+      "approvals": {
+        "totalCount": 0,
+        "nodes": []
+      },
+      "transactions": {
+        "totalCount": 91,
+        "nodes": [
+          {
+            "id": "0xf890f143ffaf166f158de28d9faa729822abade28fddd36db1e6141cfe99327a",
+            "value": "683701331943226446",
+            "to": "0xf890f143ffaf166f158de28d9faa729822abade28fddd36db1e6141cfe99327a",
+            "from": "0xf890f143ffaf166f158de28d9faa729822abade28fddd36db1e6141cfe99327a"
+          },
+          {
+            "id": "0xcd60bc76c96867a7ad6aca873cdcf0cf00e926bea0cecb8970efacb0293d0cd8",
+            "value": "38712235194216120483",
+            "to": "0xcd60bc76c96867a7ad6aca873cdcf0cf00e926bea0cecb8970efacb0293d0cd8",
+            "from": "0xcd60bc76c96867a7ad6aca873cdcf0cf00e926bea0cecb8970efacb0293d0cd8"
+          },
+          {
+            "id": "0x36ef15bff028da80733cf55da108ac7f776f0a7ecd496cde8bd342c851c996a3",
+            "value": "9999998873003000108",
+            "to": "0x36ef15bff028da80733cf55da108ac7f776f0a7ecd496cde8bd342c851c996a3",
+            "from": "0x36ef15bff028da80733cf55da108ac7f776f0a7ecd496cde8bd342c851c996a3"
+          },
+          {
+            "id": "0x6e604f84bf0a8a3d7672252d317a8a352fbb973250942f286a5ae80a0fed24ce",
+            "value": "4900000000000000000",
+            "to": "0x6e604f84bf0a8a3d7672252d317a8a352fbb973250942f286a5ae80a0fed24ce",
+            "from": "0x6e604f84bf0a8a3d7672252d317a8a352fbb973250942f286a5ae80a0fed24ce"
+          },
+          {
+            "id": "0x9961d18316501a7197bd3a4fafa60678c4e9bfec506e256ce40f98ac768c07ae",
+            "value": "61492003614536742395",
+            "to": "0x9961d18316501a7197bd3a4fafa60678c4e9bfec506e256ce40f98ac768c07ae",
+            "from": "0x9961d18316501a7197bd3a4fafa60678c4e9bfec506e256ce40f98ac768c07ae"
+          }
+        ]
       }
     }
   }
